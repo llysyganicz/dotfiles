@@ -1,0 +1,13 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, JetBrains Mono;
+    font-size: 24px;
+}
+
+window#waybar {
+    background-color: #282828;
+    border-bottom: 3px solid #ebdbb2;
+    color: #fbdbb2;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
