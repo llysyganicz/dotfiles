@@ -119,7 +119,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -263,7 +263,7 @@ layout {
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "webcord"
+spawn-at-startup "discord"
 
 environment {
 	DISPLAY ":0"
@@ -276,6 +276,10 @@ environment {
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
 prefer-no-csd
+
+hotkey-overlay {
+	skip-at-startup
+}
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -296,9 +300,30 @@ animations {
     // slowdown 3.0
 }
 
+workspace "browser" {
+	open-on-output "eDP-1"
+}
+
+workspace "discord" {
+	open-on-output "eDP-1"
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+window-rule {
+	match app-id="zen"
+	open-on-workspace "browser"
+	open-maximized true
+}
+
+window-rule {
+	match app-id="discord"
+	open-on-workspace "discord"
+	open-focused false
+	open-maximized true
+}
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -306,7 +331,7 @@ window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id=r#"wezterm$"#
     default-column-width {}
 }
 
@@ -315,7 +340,7 @@ window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen-browser"# title="^Picture-in-Picture$"
     open-floating true
 }
 
