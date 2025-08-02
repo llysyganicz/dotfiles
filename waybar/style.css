@@ -5,9 +5,23 @@
 }
 
 window#waybar {
+    background-color: transparent;
+    color: #ebdbb2;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #ebdbb2;
+    padding: 0 5px;
+}
+
+#workspaces button.focused {
+    background-color: #458588;
+}
+
+.modules-left, .modules-center, .modules-right {
     background-color: #282828;
-    border-bottom: 3px solid #ebdbb2;
-    color: #fbdbb2;
-    transition-property: background-color;
-    transition-duration: .5s;
+    border: 1px solid #458588;
+    border-radius: 8px;
+    padding: 12px;
 }
