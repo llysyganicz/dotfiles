@@ -1,0 +1,27 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, JetBrains Mono;
+    font-size: 24px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ebdbb2;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #ebdbb2;
+    padding: 0 5px;
+}
+
+#workspaces button.focused {
+    background-color: #458588;
+}
+
+.modules-left, .modules-center, .modules-right {
+    background-color: #282828;
+    border: 1px solid #458588;
+    border-radius: 8px;
+    padding: 12px;
+}
