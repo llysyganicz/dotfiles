@@ -8,3 +8,5 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,.steam"
+
+alias dotfiles='/usr/bin/git --git-dir="$HOME/Projekty/dotfiles/" --work-tree="$HOME"'
